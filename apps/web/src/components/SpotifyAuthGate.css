@@ -1,0 +1,26 @@
+.spotify-gate {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: center;
+  color: #f8fafc;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.45);
+}
+
+.spotify-gate button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1db954, #1ed760);
+  color: #041214;
+}
+
+.spotify-gate .note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #cbd5f5;
+}

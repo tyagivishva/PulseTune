@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pulsetune.local/contracts/heartbeat-event.schema.json",
+  "title": "PulseTuneHeartbeatEvent",
+  "type": "object",
+  "required": [
+    "version",
+    "deviceId",
+    "timestamp",
+    "rawBpm",
+    "smoothedBpm",
+    "zone",
+    "zoneName",
+    "adaptiveEnabled"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Contract version number. Increment when breaking changes occur."
+    },
+    "deviceId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identifier of the broadcasting device (hashed or pseudonymous)."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp when the event was generated."
+    },
+    "rawBpm": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Most recent raw heart-rate sample in beats per minute."
+    },
+    "smoothedBpm": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Smoothed heart-rate value after applying the configured filter."
+    },
+    "zone": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Current workout intensity zone index (1-5)."
+    },
+    "zoneName": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable zone label selected by the user."
+    },
+    "adaptiveEnabled": {
+      "type": "boolean",
+      "description": "Indicates whether adaptive music is active."
+    },
+    "transitionMode": {
+      "type": "string",
+      "enum": ["smooth", "immediate"],
+      "description": "Current automatic transition policy." 
+    },
+    "playbackState": {
+      "type": "object",
+      "description": "Optional snapshot of Spotify playback state.",
+      "properties": {
+        "trackUri": {"type": "string"},
+        "trackName": {"type": "string"},
+        "artistName": {"type": "string"},
+        "albumName": {"type": "string"},
+        "playlistName": {"type": "string"},
+        "isPlaying": {"type": "boolean"},
+        "progressMs": {"type": "integer", "minimum": 0 },
+        "durationMs": {"type": "integer", "minimum": 0 }
+      },
+      "required": ["trackUri", "isPlaying"],
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,39 @@
+# Xcode
+DerivedData/
+build/
+*.xcworkspace/xcuserdata/
+*.xcuserdatad
+*.xcscmblueprint
+
+# Swift Package Manager
+.build/
+Package.resolved
+**/.build/
+**/.module-cache/
+
+# Node/Vite
+node_modules/
+.pnpm-store/
+*.log
+
+# Dotnet
+bin/
+obj/
+
+# Environment & secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+**/Secrets.xcconfig
+**/Secrets/**
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Misc
+.idea/
